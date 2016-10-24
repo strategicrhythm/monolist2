@@ -7,7 +7,6 @@ class OwnershipsController < ApplicationController
     else
       @item = Item.find(params[:item_id])
     end
-       binding.pry
     # itemsテーブルに存在しない場合は楽天のデータを登録する。
     if @item.new_record?
       # TODO 商品情報の取得 RakutenWebService::Ichiba::Item.search を用いてください
