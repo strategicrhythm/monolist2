@@ -3,13 +3,15 @@
     <div class="item-single-main">
       <div class="image">
         <div class="img-wrap">
-          <% #TODO 商品イメージ %>
+          <% if @item.large_image.gsub('?_ex=268x380', '').present? %>
+          <%= image_tag @item.large_image.gsub('?_ex=268x380', ''), alt: @item.title %>
+          <% else %>
           <%= image_tag("no-image.png" , alt: @item.title) %>
+          <% end %>
         </div>
       </div>
       <div class="title">
-        <% #TODO 商品タイトル %>
-        仮タイトル
+        <%= @item.title %>
       </div>
       <%= render 'action' , item: @item %>
     </div>
@@ -17,8 +19,9 @@
       <div class="side-box">
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
-          <% # TODO Haveしたユーザー一覧 %>
-
+          <% Item.have_users.each do |user| %>
+          <%= gravatar_for user, size: 100 %>
+          <% end %>
         </div>
       </div>
       <div class="side-box">
@@ -29,7 +32,7 @@
       </div>
       <div class="text-center">
         <% #TODO 正しいリンク先に %>
-        <%= link_to('楽天詳細ページへ', '#') %>
+        <%= link_to'楽天詳細ページへ', @item.detail_page_url %>
       </div>
     </div>
   </div>
