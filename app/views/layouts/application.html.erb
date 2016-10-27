@@ -3,8 +3,12 @@
 <head>
   <% if content_for?(:head) %>
     <%= yield :head %>
+  <% elsif content_for?(:ritem) %>
+    <title><%= yield :ritem %>-Monolist-</title>
+    <meta name="description" content="<%= yield :ritem %>"に関する情報です。この商品を欲しい人、持ってる人を表示しています。 />
   <% else %>
-    <title>Monolist</title>
+    <title><%= yield :muser %>-Monolist-</title>
+    <meta name="description" content="<%= yield :muser %>"のモノページ。<%= yield :muser %>の欲しいモノ、持ってるモノを表示しています。 />
   <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
