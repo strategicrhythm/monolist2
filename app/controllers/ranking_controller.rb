@@ -4,6 +4,7 @@ class RankingController < ApplicationController
   end
   
   def want
-    @items = Item.all.order("updated_at DESC").limit(10)
+    @items = Item.joins(:want_users).group('items.id').order("COUNT(users.id) DESC").limit(10)
   end
+  
 end

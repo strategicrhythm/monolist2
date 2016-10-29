@@ -1,0 +1,10 @@
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-contents">
+      <h1>「Want」している人が多いランキング TOP10</h1>
+      <%= link_to 'モノリストを始める' , login_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+</div>
+
+<%= render 'items/want_ranking' , items: @items %>
