@@ -13,12 +13,12 @@
         </div>
         <div class="detail">
           <p class="title">
-            <%= item.title %>
+            <%= truncate(item.title, omission: '・・・', length: 26) %>
           </p>
         </div>
         <div class="ranking">
           <p class="title">
-            <%= item.want_users.count %> USERSが「Want」しています
+            <%= item.want_users.count %> 人が「Want」しています
           </p>
         </div>
         <%= render 'items/action' , item: item if logged_in? %>
