@@ -1,6 +1,8 @@
+
 <div class="container">
   <div class="container-inner ranking clearfix">
-    <% items.each do |item| %>
+    <h2>「Have」している人が多いランキング TOP10</h2>
+    <% items.each_with_index do |item, i| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
@@ -18,7 +20,8 @@
         </div>
         <div class="ranking">
           <p class="title">
-            <%= item.have_users.count %> 人が「Have」しています
+            <strong><%= p i+1 %>位</strong>
+            <%= item.have_users.count %>人が「Have」しています
           </p>
         </div>
         <%= render 'items/action' , item: item if logged_in? %>
